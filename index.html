@@ -18,7 +18,11 @@
     </div>
     <center>
       <div id="panel">
-        <input type="button" id="nextGen" value="Next Generation">
+        <select id="boardsize" onchange="testSelect()">
+          <option value="10" selected="selected">10 x 10 board</option>
+          <option value="40">40 x 40 board</option>
+        </select>
+        <input type="button" id="nextgen" value="Next Generation">
       </div>
       <div id="reference">
         <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">wiki Conway's Game of Life</a><br/>
@@ -30,5 +34,5 @@
   <!-- js file -->
   <script type="text/javascript" src="js/generate_table.js"></script>
   <script type="text/javascript" src="js/gol.js"></script>
-
+  <script type="text/javascript" src="js/panel.js"></script>
 </body>
