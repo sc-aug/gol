@@ -18,9 +18,9 @@
     </div>
     <center>
       <div id="panel">
-        <select id="creature">
-          <option value="1" selected="selected">Glider</option>
-          <option value="2">Blinker</option>
+        <select id="creature" onchange="controller.panelCreature()">
+          <option value="0" selected="selected">Glider</option>
+          <option value="1">Blinker</option>
         </select>
         <select id="boardsize" onchange="controller.panelBoardSize()">
           <option value="10" selected="selected">10 x 10 board</option>
@@ -36,5 +36,8 @@
     </center>
   </div>
   <!-- js file -->
-  <script type="text/javascript" src="js/gol.js"></script>
+  <script type="text/javascript" src="js/model.js"></script>
+  <script type="text/javascript" src="js/view.js"></script>
+  <script type="text/javascript" src="js/controller.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
 </body>
