@@ -31,6 +31,7 @@ var model = {
   },
 
   addCreature: function() {
+    this.sign = true;
     switch(this.creature_id) {
       case 0:
       case "0":
@@ -38,7 +39,23 @@ var model = {
         break;
       case 1:
       case "1":
+        this.spaceship(this.creature_x, this.creature_y);
+        break;
+      case 2:
+      case "2":
         this.blinker(this.creature_x, this.creature_y);
+        break;
+      case 3:
+      case "3":
+        this.block(this.creature_x, this.creature_y);
+        break;
+      case 4:
+      case "4":
+        this.toad(this.creature_x, this.creature_y);
+        break;
+      case 5:
+      case "5":
+        this.beacon(this.creature_x, this.creature_y);
         break;
       default:
         this.glider(this.creature_x, this.creature_y);
@@ -100,25 +117,58 @@ var model = {
     }
   },
   
-  /* formula */
+  /* creature */
+  // 0
   glider: function(i,j) {
     // var i = this.creature_x;
-    // var j = this.creature_y
-    this.sign = true;
+    // var j = this.creature_y;
     this.blocka[i][j+1] = true;
     this.blocka[i+1][j+2] = true;
     this.blocka[i+2][j] = true;
     this.blocka[i+2][j+1] = true;
     this.blocka[i+2][j+2] = true;
   },
-  
-  blinker: function(i,j) {
-    this.sign = true;
+  // 1
+  spaceship: function(i, j) {
+    for (var k = j+1; k < j+5; k ++) {
+      this.blocka[i][k] = true;
+    }
+    this.blocka[i+1][j] = true;
+    this.blocka[i+1][j+4] = true;
+    this.blocka[i+2][j+4] = true;
+    this.blocka[i+3][j] = true;
+    this.blocka[i+3][j+3] = true;
+  },
+  // 2
+  blinker: function(i, j) {
     this.blocka[i][j] = true;
     this.blocka[i][j+1] = true;
     this.blocka[i][j+2] = true;
   },
-  
+  // 3
+  block: function(i, j) {
+    for (var p = i; p < i+2; p ++) {
+      for (var q = j; q < j+2; q ++) {
+        this.blocka[p][q] = true;
+      }
+    }
+  },
+  // 4
+  toad: function(i, j) {
+    for (var p = i; p < i+2; p ++) {
+      for (var q = j; q < j+4; q ++) {
+        this.blocka[p][q] = true;
+      }
+    }
+    this.blocka[i][j] = false;
+    this.blocka[i+1][j+3] = false;
+  },
+  // 5
+  beacon: function(i,j) {
+    this.block(i,j);
+    this.block(i+2,j+2);
+  },
+
   diagnal: function() {
     this.sign = true;
     for (var i = 0; i < this.size; i ++) {
