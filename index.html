@@ -18,11 +18,15 @@
     </div>
     <center>
       <div id="panel">
-        <select id="boardsize" onchange="testSelect()">
+        <select id="creature">
+          <option value="1" selected="selected">Glider</option>
+          <option value="2">Blinker</option>
+        </select>
+        <select id="boardsize" onchange="controller.panelBoardSize()">
           <option value="10" selected="selected">10 x 10 board</option>
           <option value="40">40 x 40 board</option>
         </select>
-        <input type="button" id="nextgen" value="Next Generation">
+        <input type="button" id="nextgen" onclick="controller.panelNextGenBtn()" value="Next Generation">
       </div>
       <div id="reference">
         <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">wiki Conway's Game of Life</a><br/>

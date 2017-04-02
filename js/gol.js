@@ -4,7 +4,65 @@ var model = {
   sign: true, // true for a, false for b
   row: 10,
   col: 10,
-  /* basic function */
+  creature_x: 0,
+  creature_y: 0,
+  creature_id: 0,
+
+  /* Board */
+  selectBoard10: function() {
+    setBoard(10,10);
+  },
+
+  selectBoard40: function() {
+    setBoard(40,40);
+  },
+
+  setBoard: function(r, c) {
+    this.row = r;
+    this.col = c;
+  },
+
+  genWorld: function() {
+    this.cleanWorld();
+    this.addCreature();
+    this.refresh();
+  },
+
+  cleanWorld: function() {
+    // clean world.
+    this.sign = true;
+    for (var i = 0; i < this.row; i ++) {
+      this.blocka[i] = [];
+      this.blockb[i] = [];
+    }
+    for (var i = 0; i < this.row; i ++) {
+      for (var j = 0; j < this.col; j ++) {
+        this.blocka[i][j] = false;
+        this.blockb[i][j] = false;
+      }
+    }
+  },
+
+  addCreature: function() {
+    switch(this.creature_id) {
+      case 0:
+        this.glider(this.creature_x, this.creature_y);
+        break;
+      case 1:
+        this.blinker(this.creature_x, this.creature_y);
+        break;
+      default:
+        this.glider(this.creature_x, this.creature_y);
+    }
+  },
+
+  testInit: function() {
+    this.cleanWorld();
+    this.glider(3,3);
+    this.refresh();
+  },
+
+  /* Compute the next generation */
   propogate: function() {
     var blockCur = (this.sign) ? this.blocka : this.blockb;
     var blockNext = (this.sign) ? this.blockb : this.blocka;
@@ -22,6 +80,7 @@ var model = {
       }
     }
   },
+
   cntNeighbor: function(block, i, j) {
     var sum = 0;
     var rp, rq, R = this.row, C = this.col;
@@ -48,19 +107,7 @@ var model = {
     }
     return sum - block[i][j];
   },
-  init: function() {
-    this.sign = true;
-    for (var i = 0; i < this.row; i ++) {
-      this.blocka[i] = [];
-      this.blockb[i] = [];
-    }
-    for (var i = 0; i < this.row; i ++) {
-      for (var j = 0; j < this.col; j ++) {
-        this.blocka[i][j] = false;
-        this.blockb[i][j] = false;
-      }
-    }
-  },
+
   refresh: function() {
     // change td class --> show
     var block = (this.sign) ? this.blocka : this.blockb;
@@ -71,8 +118,11 @@ var model = {
       }
     }
   },
+  
   /* formula */
-  glider: function(i, j) {
+  glider: function(i,j) {
+    // var i = this.creature_x;
+    // var j = this.creature_y
     this.sign = true;
     this.blocka[i][j+1] = true;
     this.blocka[i+1][j+2] = true;
@@ -80,12 +130,14 @@ var model = {
     this.blocka[i+2][j+1] = true;
     this.blocka[i+2][j+2] = true;
   },
+  
   blinker: function(i,j) {
     this.sign = true;
     this.blocka[i][j] = true;
     this.blocka[i][j+1] = true;
     this.blocka[i][j+2] = true;
   },
+  
   diagnal: function() {
     this.sign = true;
     for (var i = 0; i < this.row; i ++) {
@@ -94,69 +146,52 @@ var model = {
   }
 };
 
+
 var view = {
+  
   live: function(location) {
     var cell = document.getElementById(location);
     cell.setAttribute("class", "live");
   },
+
   die: function(location) {
     var cell = document.getElementById(location);
     cell.setAttribute("class", "die");
   }
+
 };
 
+
 var controller = {
-  /* tests */
-  test01: function() {
-    model.init();
-    model.diagnal();
+  // change size then [update]
+  panelBoardSize: function() {
+    // get selected value
+    var selectBoard = document.getElementById("boardsize");
+    // change board size (model.row model.col)
+    // console.log("controller ", selectBoard.value);
+    this.chooseBoard(selectBoard.value);
+    // update the world
+    model.genWorld();
+  },
+
+  // change size then [update]
+  panelNextGenBtn: function() {
+    model.propogate();
     model.refresh();
   },
-  test02: function() {
-    model.init();
-    model.blinker(3,4);
-    model.refresh();
-  },
-  test03: function() {
-    model.init();
-    model.glider(3,3);
-    model.refresh();
+
+  chooseBoard: function(boardSize) {
+    if (boardSize == 40) {
+      model.setBoard40();
+    } else { // use default board size
+      model.setBoard10();
+    }
   }
+
 }
 
-/* System Func */
-function wait(ms){
-  console.log("waiting ...");
-  var start = new Date().getTime();
-  var end = start;
-  while(end < start + ms) {
-    end = new Date().getTime();
-  }
+function init() {
+  model.genWorld();
 }
 
-/* Test01 */
-function test01() {
-  controller.test01();
-}
-/* Test02 */
-function test02() {
-  controller.test02();
-  // wait NOT WORK!!!!!!
-  setTimeout(model.propogate, 4000);
-  setTimeout(model.refresh, 4000);
-}
-/* Test03 */
-function handleGenBtn() {
-  model.propogate();
-  model.refresh();
-}
-function test03() {
-  //init
-  controller.test03();
-  // handle
-  var genBtn = document.getElementById("nextGen");
-  genBtn.onclick = handleGenBtn;
-}
-
-window.onload = test03;
-
+window.onload = init;
