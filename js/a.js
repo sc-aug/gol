@@ -1,4 +1,4 @@
-function generate_table(R, C) {
+function generateTable(R, C) {
   // get the reference for the body
   var block = document.getElementById("field");
 
@@ -24,11 +24,5 @@ function generate_table(R, C) {
     tbl.appendChild(row);
   }
  
-  // // put the <tbody> in the <table>
-  // tbl.appendChild(tblBody);
-  // appends <table> into <body>
   block.appendChild(tbl);
-  // sets the border attribute of tbl to 2;
 }
-
-generate_table(10,10);

@@ -2,8 +2,7 @@ var model = {
   blocka: [[]],
   blockb: [[]],
   sign: true, // true for a, false for b
-  row: 10,
-  col: 10,
+  size: 10,
   creature_x: 0,
   creature_y: 0,
   creature_id: 0,
@@ -17,12 +16,12 @@ var model = {
     setBoard(40,40);
   },
 
-  setBoard: function(r, c) {
-    this.row = r;
-    this.col = c;
+  setBoard: function(size) {
+    this.size = size;
   },
 
   genWorld: function() {
+    view.generateTable(this.size);
     this.cleanWorld();
     this.addCreature();
     this.refresh();
@@ -31,12 +30,12 @@ var model = {
   cleanWorld: function() {
     // clean world.
     this.sign = true;
-    for (var i = 0; i < this.row; i ++) {
+    for (var i = 0; i < this.size; i ++) {
       this.blocka[i] = [];
       this.blockb[i] = [];
     }
-    for (var i = 0; i < this.row; i ++) {
-      for (var j = 0; j < this.col; j ++) {
+    for (var i = 0; i < this.size; i ++) {
+      for (var j = 0; j < this.size; j ++) {
         this.blocka[i][j] = false;
         this.blockb[i][j] = false;
       }
@@ -68,8 +67,8 @@ var model = {
     var blockNext = (this.sign) ? this.blockb : this.blocka;
     var neighbor;
     this.sign = !this.sign;
-    for (var i = 0; i < this.row; i ++) {
-      for (var j = 0; j < this.col; j ++) {
+    for (var i = 0; i < this.size; i ++) {
+      for (var j = 0; j < this.size; j ++) {
         neighbor = this.cntNeighbor(blockCur, i, j);
         //console.log("cnt neighbor: " + neighbor);
         if (blockCur[i][j]) {
@@ -83,38 +82,35 @@ var model = {
 
   cntNeighbor: function(block, i, j) {
     var sum = 0;
-    var rp, rq, R = this.row, C = this.col;
+    var rp, rq, size = this.size;
     for (var p = i-1; p <= i+1; p ++) {
       for (var q = j-1; q <= j+1; q ++) {
-        if (p < 0) {
-          rp = R-1;
-        } else if (p >= R) {
-          rp = 0;
-        } else {
-          rp = p;
-        }
-
-        if (q < 0) {
-          rq = C-1;
-        } else if (q >= C) {
-          rq = 0;
-        } else {
-          rq = q;
-        }
-
+        rp = this.getPosition(p, size);
+        rq = this.getPosition(q, size);
         if (block[rp][rq]) sum ++;
       }
     }
+    console.log(i,j,sum);
     return sum - block[i][j];
+  },
+
+  getPosition: function(i, size) {
+    while (i < 0) {
+      i += size;
+    }
+    while (i >= size) {
+      i -= size;
+    }
+    return i;
   },
 
   refresh: function() {
     // change td class --> show
     var block = (this.sign) ? this.blocka : this.blockb;
-    for (var i = 0; i < this.row; i ++) {
-      for (var j = 0; j < this.col; j ++) {
-        if (block[i][j]) view.live("id_" + i + "_" + j);
-        else view.die("id_" + i + "_" + j);
+    for (var i = 0; i < this.size; i ++) {
+      for (var j = 0; j < this.size; j ++) {
+        if (block[i][j]) view.live("id_" + i + "_" + j, this.size);
+        else view.die("id_" + i + "_" + j, this.size);
       }
     }
   },
@@ -140,7 +136,7 @@ var model = {
   
   diagnal: function() {
     this.sign = true;
-    for (var i = 0; i < this.row; i ++) {
+    for (var i = 0; i < this.size; i ++) {
       this.blocka[i][i] = true;
     }
   }
@@ -149,29 +145,78 @@ var model = {
 
 var view = {
   
-  live: function(location) {
+  live: function(location, size) {
     var cell = document.getElementById(location);
-    cell.setAttribute("class", "live");
+    cell.setAttribute("class", ("world" + size + "live"));
   },
 
-  die: function(location) {
+  die: function(location, size) {
     var cell = document.getElementById(location);
-    cell.setAttribute("class", "die");
+    cell.setAttribute("class", ("world" + size + "die"));
+  },
+
+  // tableSize10: function(location) {
+  //   var cell = document.getElementById(location);
+  // },
+
+  // tableSize40: function(location) {
+  //   var cell = document.getElementById(location);
+  // },
+
+  generateTable: function(size) {
+    // get the reference for the body
+    var block = document.getElementById("field");
+
+    // creates a <table> element and a <tbody> element
+    var tbl = document.createElement("table");
+    //var tblBody = document.createElement("tbody");
+    var row = document.createElement("tr");
+    // creating all cells
+    for (var i = 0; i < size; i++) {
+      // creates a table row
+      row = document.createElement("tr");
+ 
+      for (var j = 0; j < size; j++) {
+        // Create a <td> element and a text node, make the text
+        // node the contents of the <td>, and put the <td> at
+        // the end of the table row
+        var cell = document.createElement("td");
+        cell.setAttribute("id", ("id_"+i+"_"+j));
+        row.appendChild(cell);
+      }
+ 
+      // add the row to the end of the table body
+      tbl.appendChild(row);
+    }
+ 
+    // // put the <tbody> in the <table>
+    // tbl.appendChild(tblBody);
+    // appends <table> into <body>
+    block.appendChild(tbl);
+    // sets the border attribute of tbl to 2;
   }
 
 };
 
 
 var controller = {
+
+  genWorld: function() {
+    model.cleanWorld();
+    model.addCreature();
+    view.generateTable(model.size);
+    model.refresh();
+  },
+
   // change size then [update]
   panelBoardSize: function() {
     // get selected value
     var selectBoard = document.getElementById("boardsize");
-    // change board size (model.row model.col)
     // console.log("controller ", selectBoard.value);
-    this.chooseBoard(selectBoard.value);
+    //view.generateTable(selectBoard.value);
+    model.size = selectBoard.value;
     // update the world
-    model.genWorld();
+    this.genWorld();
   },
 
   // change size then [update]
@@ -191,7 +236,7 @@ var controller = {
 }
 
 function init() {
-  model.genWorld();
+  controller.genWorld();
 }
 
 window.onload = init;

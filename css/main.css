@@ -27,12 +27,8 @@ body {
   border-radius: 5px;
 }
 #field td {
-  width: 10%;
-  height: 10%;
   border: 1px;
   border-spacing: 1px;
-  // this will cover the changes
-  // background-color: transparent;
   border-radius: 5px;
 }
 #reference {
@@ -43,9 +39,23 @@ body {
   margin-top: 10px;
   margin-bottom: 10px;
 }
-.live {
+.world10live {
   background: #E74C3C;
+  width: 10%;
+  height: 10%;
 }
-.die {
+.world10die {
   background: #AAB7B8;
+  width: 10%;
+  height: 10%;
+}
+.world40live {
+  background: #E74C3C;
+  width: 2.5%;
+  height: 2.5%;
+}
+.world40die {
+  background: #AAB7B8;
+  width: 2.5%;
+  height: 2.5%;
 }
