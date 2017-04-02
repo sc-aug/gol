@@ -1,11 +1,11 @@
-### GOL: no border world
+### GOL: No border World v2.1
 Those creatures live in a no border world happily...
 
 #### Features
 * No border.
-* Auto generation. (constructing)
 * Switch board size.
-* Different initial communities.
+* Different initial creatures.
+* Auto generation. (constructing)
 
 ### Simple Rule
 * for `cell(i,j)` in `board(Row, Col)`
