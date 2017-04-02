@@ -4,8 +4,8 @@ Those creatures live in a no border world happily...
 #### Features
 * No border.
 * Auto generation. (constructing)
-* Switch board size. (constructing)
-* Different initial communities. (constructing)
+* Switch board size.
+* Different initial communities.
 
 ### Simple Rule
 * for `cell(i,j)` in `board(Row, Col)`
