@@ -7,44 +7,61 @@
   <title>Game of Life: No Border World</title>
 </head>
 <body>
-  <div id="board">
+  <div id="content-wrapper">
+    <!-- header -->
     <div id="header">
       <center>
         <h1>Game of Life: No Border World</h1>
       </center>
       <div id="version" align="right">
-        version 2.1
+        version 2.2
       </div>
     </div>
-    <hr/>
-    <div id="field">
+    <!-- play ground -->
+    <div id="playground">
+      <hr/>
+      <div id="left-board" class="div-row">
+        <div id="field">
+        </div>
+      
+      </div>
+      <div id="right-board" class="div-row">
+        <div id="panel">
+          <!-- Creature Gen -->
+          <div class="div-controller">
+          Creature Generator
+            <select id="creatureSelector">
+              <option value="0" selected="selected">move-Glider</option>
+              <option value="1">move-Spaceship</option>
+              <option value="2">stay-Blinker</option>
+              <option value="3">stay-Block</option>
+              <option value="4">stay-Toad</option>
+              <option value="5">stay-Beacon</option>
+            </select>
+          </div>
+          <hr/>
+          <!-- World -->
+          <div class="div-controller">
+          World Generator
+            <select id="worldSelector">
+              <option value="10" selected="selected">10 x 10 board</option>
+              <option value="40">40 x 40 board</option>
+            </select>  
+          </div>
+          <hr/>
+          <!-- Btn -->
+          <div class="div-controller">
+            <input type="button" id="nextGenBtn" value="Next Generation">
+          </div>
+
+        </div>
+      </div>
+      <hr/>
     </div>
-    <center>
-      <div id="panel">
-        <!-- Creature -->
-        <select id="creatureSelector">
-          <option value="0" selected="selected">move-Glider</option>
-          <option value="1">move-Spaceship</option>
-          <option value="2">stay-Blinker</option>
-          <option value="3">stay-Block</option>
-          <option value="4">stay-Toad</option>
-          <option value="5">stay-Beacon</option>
-        </select>
-        <!-- World -->
-        <select id="worldSelector">
-          <option value="10" selected="selected">10 x 10 board</option>
-          <option value="40">40 x 40 board</option>
-        </select>
-        <!-- Btn -->
-        <input type="button" id="nextGenBtn" value="Next Generation">
-      </div>
-    </center>
-    <hr/>
-      <div id="reference">
-      <b style="font-size: 22px">References</b>: <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">wiki Conway's Game of Life</a><!--</li>
-        <li><a href="https://leetcode.com/problems/game-of-life/">leetcode alg game-of-life</a></li>
-      </ol>-->
-      </div>
+    <div id="footer">
+        <b style="font-size: 22px"><a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">wiki Conway's Game of Life</a></b>
+    </div>
+
   </div>
   <!-- js file -->
   <script type="text/javascript" src="js/model.js"></script>
