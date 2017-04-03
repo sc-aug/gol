@@ -9,9 +9,9 @@ var controller = {
   },
 
   // change creature
-  panelCreature: function() {
+  panelChangeCreature: function() {
     // get creature id
-    var selectCreature = document.getElementById("creature");
+    var selectCreature = document.getElementById("creatureSelector");
 
     model.setCreature(selectCreature.value);
     model.cleanBlocks();
@@ -20,16 +20,16 @@ var controller = {
   },
 
   // change size then [update]
-  panelBoardSize: function() {
+  panelChangeWorld: function() {
     // get selected value
-    var selectBoard = document.getElementById("boardsize");
+    var selectBoard = document.getElementById("worldSelector");
     // set size
     model.setBoard(selectBoard.value);
 
     // remove the old world
     view.removeTable();
     // create the world
-    this.genWorld();
+    controller.genWorld();
   },
 
   // change size then [update]

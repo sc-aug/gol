@@ -1,35 +1,49 @@
+@font-face {
+    font-family: "Amatic SC";
+    src: url("../fonts/AmaticSC-Bold.ttf");
+}
 body {
-  background-color: #d2b48c;
   width: 600px;
-  height: same-as-width;
   margin-left: 10%;
   padding: 10px 10px 10px 10px;
-  //width:80%;
   margin-left:auto;
   margin-right:auto;
+  /* bg */
+  background-color: #e6e6e6;
+  /* font */
+  font-family: "Amatic SC";
+  font-style: normal;
+  font-variant: normal;
 }
-/*#version {
-  align: right;
-}*/
+hr {
+  border:none;
+  border-top:1px dotted grey;
+  width:90%;
+}
 #board {
+  background-color: #EAEDED;//#d2b48c;
   border: 1px dotted gray;
+  border-radius: 10px;
+  /* for IE */
+  filter: alpha(opacity=80);
+  /* CSS3 standard */
+  opacity:0.8;
 }
-#header,#field {
+#header,#field,#reference {
   margin-top: 40px;
   margin-left: auto;
   margin-right: auto;
-  width: 500px;
+  width: 522px;
 }
 #field table{
-  width: 500px;
-  height: 500px;
+  width: 522px;
+  height: 522px;
   background: #EAEDED;
-  border-radius: 1px;
+  border-radius: 3px;
 }
 #field td {
-  border: 1px;
   border-spacing: 1px;
-  border-radius: 1px;
+  border-radius: 3px;
 }
 #reference {
   margin-top: 10px;
@@ -41,21 +55,21 @@ body {
 }
 .world10live {
   background: #E74C3C;
-  width: 10%;
-  height: 10%;
+  width: auto;
+  height: auto;
 }
 .world10die {
   background: #AAB7B8;
-  width: 10%;
-  height: 10%;
+  width: auto;
+  height: auto;
 }
 .world40live {
   background: #E74C3C;
-  width: 2%;
-  height: 2%;
+  width: auto;
+  height: auto;
 }
 .world40die {
   background: #AAB7B8;
-  width: 2%;
-  height: 2%;
+  width: auto;
+  height: auto;
 }
