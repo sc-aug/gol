@@ -1,20 +1,35 @@
+@font-face {
+    font-family: "Amatic SC";
+    src: url("../fonts/AmaticSC-Bold.ttf");
+}
 body {
-  background-color: #d2b48c;
   width: 600px;
-  height: same-as-width;
   margin-left: 10%;
   padding: 10px 10px 10px 10px;
-  //width:80%;
   margin-left:auto;
   margin-right:auto;
+  /* bg */
+  background-color: #e6e6e6;
+  /* font */
+  font-family: "Amatic SC";
+  font-style: normal;
+  font-variant: normal;
 }
-/*#version {
-  align: right;
-}*/
+hr {
+  border:none;
+  border-top:1px dotted grey;
+  width:90%;
+}
 #board {
+  background-color: #EAEDED;//#d2b48c;
   border: 1px dotted gray;
+  border-radius: 10px;
+  /* for IE */
+  filter: alpha(opacity=80);
+  /* CSS3 standard */
+  opacity:0.8;
 }
-#header,#field {
+#header,#field,#reference {
   margin-top: 40px;
   margin-left: auto;
   margin-right: auto;
@@ -24,12 +39,12 @@ body {
   width: 500px;
   height: 500px;
   background: #EAEDED;
-  border-radius: 1px;
+  border-radius: 3px;
 }
 #field td {
   border: 1px;
   border-spacing: 1px;
-  border-radius: 1px;
+  border-radius: 3px;
 }
 #reference {
   margin-top: 10px;
