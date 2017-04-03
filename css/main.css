@@ -3,11 +3,12 @@
     src: url("../fonts/AmaticSC-Bold.ttf");
 }
 body {
+  /*
   width: 600px;
   margin-left: 10%;
   padding: 10px 10px 10px 10px;
   margin-left:auto;
-  margin-right:auto;
+  margin-right:auto;*/
   /* bg */
   background-color: #e6e6e6;
   /* font */
@@ -16,12 +17,20 @@ body {
   font-variant: normal;
 }
 hr {
-  border:none;
+  border: none;
   border-top:1px dotted grey;
-  width:90%;
+  width:100%;
 }
-#board {
-  background-color: #EAEDED;//#d2b48c;
+select, input {
+  text-align-last: center;
+  width: 130px;
+}
+#content-wrapper {
+  margin-left:auto;
+  margin-right:auto;
+  width: 700px;
+  padding: 10px 10px 10px 10px;
+  background-color: #EAEDED;
   border: 1px dotted gray;
   border-radius: 10px;
   /* for IE */
@@ -29,29 +38,53 @@ hr {
   /* CSS3 standard */
   opacity:0.8;
 }
-#header,#field,#reference {
-  margin-top: 40px;
+#header {
   margin-left: auto;
   margin-right: auto;
-  width: 522px;
+  width: 400px;
+}
+#playground {
+  width: 690px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#left-board, #right-board {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+#left-board {
+  width: 532px;
+}
+#right-board {
+  width: 138px;
 }
 #field table{
   width: 522px;
   height: 522px;
   background: #EAEDED;
   border-radius: 3px;
+  margin-bottom: 20px;
 }
 #field td {
   border-spacing: 1px;
   border-radius: 3px;
 }
-#reference {
-  margin-top: 10px;
-  margin-bottom: 40px;
-}
 #panel {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+#footer {
+  margin-top: 30px;
+  text-align: center;
+}
+.div-row {
+  margin-left: auto;
+  margin-right: auto;
+  float: left;
+  display: inline;
+}
+.div-controller {
+  margin: 0px;
 }
 .world10live {
   background: #E74C3C;

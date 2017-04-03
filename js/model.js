@@ -7,7 +7,7 @@ var model = {
   creature_y: 3,
   creature_id: 0,
 
-  setBoard: function(size) {
+  setWorldSize: function(size) {
     this.size = Number(size);
   },
 
