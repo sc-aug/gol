@@ -6,7 +6,7 @@ var controller = {
     model.addCreature();
     view.generateTable(model.size);
     model.refresh();
-  },
+  }/*,
 
   // change creature
   panelChangeCreature: function() {
@@ -36,6 +36,6 @@ var controller = {
   panelNextGenBtn: function() {
     model.propogate();
     model.refresh();
-  }
+  }*/
 
 }
