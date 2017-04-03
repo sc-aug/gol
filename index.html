@@ -2,6 +2,7 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="css/main.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon"> 
   <title>Game of Life: No Border World</title>
 </head>
 <body>
@@ -18,7 +19,8 @@
     </div>
     <center>
       <div id="panel">
-        <select id="creature" onchange="controller.panelCreature()">
+        <!-- Creature -->
+        <select id="creatureSelector">
           <option value="0" selected="selected">Glider</option>
           <option value="1">Spaceship</option>
           <option value="2">Blinker</option>
@@ -26,12 +28,15 @@
           <option value="4">Toad</option>
           <option value="5">Beacon</option>
         </select>
-        <select id="boardsize" onchange="controller.panelBoardSize()">
+        <!-- World -->
+        <select id="worldSelector">
           <option value="10" selected="selected">10 x 10 board</option>
           <option value="40">40 x 40 board</option>
         </select>
-        <input type="button" id="nextgen" onclick="controller.panelNextGenBtn()" value="Next Generation">
+        <!-- Btn -->
+        <input type="button" id="nextGenBtn" value="Next Generation">
       </div>
+      <hr class="hline"/>
       <div id="reference">
         <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">wiki Conway's Game of Life</a><br/>
         <a href="https://leetcode.com/problems/game-of-life/">leetcode alg game-of-life</a>
