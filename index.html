@@ -21,16 +21,47 @@
     <hr/>
 
     <div id="main-wrap">
-    <!-- put table here -->
-      <div id="board-wrap">
+      
+      <div id="left-board" class="div-row">
+        <div id="board-wrap">
+        <!-- table here -->
+        </div>
       </div>
-      <div id="panel-wrap">
-        <!-- Btn -->
-        <!--<input type="button" id="blinkBtn" value="Blink">-->
-      </div>
-    </div>
 
-    <div id="ref-wrap">
+      <div id="right-board" class="div-row">
+        <div id="panel-wrap">
+
+          <div class="div-ctrl">
+          World Size
+            <select id="worldSelector">
+              <option value="10">10 x 10 board</option>
+              <option value="40" selected="selected">40 x 40 board</option>
+            </select>
+          </div>
+          <hr/>
+          <div class="div-ctrl" >
+          Add Random Nodes
+            <input type="button" value="Add Random Nodes">
+          </div>
+          <hr/>
+          <div class="div-ctrl">
+          Creature Generator
+            <select id="creatureSelector">
+              <option value="0" selected="selected">move-Glider</option>
+            </select>
+          </div>
+          <hr/>
+          <div class="div-ctrl">
+            <input type="button" id="nextGenBtn" value="Next tion">
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+    <div style=”clear:both;”></div>
+
+    <div id="foot-wrap">
       <!-- ref -->
     </div>
 

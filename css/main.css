@@ -16,12 +16,17 @@ body {
   font-variant: normal;
 }
 hr {
-  border:none;
+  border: none;
   border-top:1px dotted grey;
-  width: 90%;
+  width:100%;
+}
+select, input {
+  text-align-last: center;
+  width: 130px;
 }
 #content-wrap {
-  padding: 0px 0px 30px 0px;
+  width: 700px;
+  padding: 10px 10px 10px 10px;
   background-color: #EAEDED;
   border: 1px dotted gray;
   border-radius: 10px;
@@ -30,10 +35,39 @@ hr {
   /* CSS3 standard */
   opacity:0.8;
 }
-#header-wrap, #main-wrap, #board-wrap #ref-wrap{
+#header-wrap {
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+}
+#version {
+  align: right;
+}
+#main-wrap {
+  overflow:hidden; /* cancel float in child*/
+  margin-left: auto;
+  margin-right: auto;
+  width: 690px;
+}
+#left-board, #right-board {
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 20px;
+}
+#left-board {
+  width: 532px;
+}
+#right-board {
+  width: 138px;
+}
+#board-wrap {
   margin-left: auto;
   margin-right: auto;
   width: 522px;
+}
+#foot-wrap{
+  margin-left: auto;
+  margin-right: auto;
 }
 #board-wrap table{
   width: 522px;
@@ -43,8 +77,16 @@ hr {
 }
 #board-wrap td {
   border-spacing: 1px;
-  //background-color: white;
   border-radius: 2px;
+}
+.div-row {
+  margin-left: auto;
+  margin-right: auto;
+  float: left;
+  display: inline;
+}
+.div-ctrl {
+  margin: 0px;
 }
 .live {
   background: #E74C3C;
@@ -52,7 +94,7 @@ hr {
   height: auto;
 }
 .die {
-  background: white;// #AAB7B8;
+  background: #AAB7B8;
   width: auto;
   height: auto;
 }
