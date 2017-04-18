@@ -4,8 +4,10 @@ var controller = {
     model.setWorldSize(40); // default size
     // init data
     model.initData();
-    // init view
+    // generate table structure
     view.generateTable(model.getWorldSize());
+    // update table
+    controller.refresh();
   },
 
   refresh: function() {
