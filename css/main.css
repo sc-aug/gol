@@ -88,12 +88,12 @@ select, input {
 .div-ctrl {
   margin: 0px;
 }
-.live {
+.world40live {
   background: #E74C3C;
   width: auto;
   height: auto;
 }
-.die {
+.world40die {
   background: #AAB7B8;
   width: auto;
   height: auto;

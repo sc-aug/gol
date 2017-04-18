@@ -1,5 +1,7 @@
 var view = {
   generateTable: function(size) {
+    //var live = "world" + size + "live";
+    var die = "world" + size + "die";
     var board = document.getElementById("board-wrap");
     var tbl = document.createElement("table");
     // tbl.setAttribute("id", "world");
@@ -12,7 +14,7 @@ var view = {
         var cell = document.createElement("td");
         cell.id = "id_"+i+"_"+j;
         //cell.setAttribute("id", ("id_"+i+"_"+j));
-        cell.setAttribute("class", "die");
+        cell.setAttribute("class", die);
         row.appendChild(cell);
       }
       // add the row to the end of the table body
@@ -20,6 +22,16 @@ var view = {
     }
     board.appendChild(tbl);
     // sets the border attribute of tbl to 2;
+  },
+
+  live: function(i, j, size) {
+    var cell = document.getElementById("id_" + i + "_" + j);
+    cell.setAttribute("class", ("world" + size + "live"));
+  },
+
+  die: function(i, j, size) {
+    var cell = document.getElementById("id_" + i + "_" + j);
+    cell.setAttribute("class", ("world" + size + "die"));
   }
 
 };
