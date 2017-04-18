@@ -12,6 +12,11 @@ function handleAddRandBtn() {
   controller.refresh();
 }
 
+function handleWorldSelector(Obj) {
+  var size = Obj.srcElement.value;
+  controller.initWorld(size);
+}
+
 function handleNextGenBtn() {
   model.propogate();
   model.flipSwicher();
@@ -25,6 +30,10 @@ function init() {
   // Add Random Nodes Button
   var addRandBtn = document.getElementById("addRandBtn");
   addRandBtn.onclick = handleAddRandBtn;
+
+  // change world
+  var worldSelector = document.getElementById("worldSelector");
+  worldSelector.onchange = handleWorldSelector;
 
   // Generate next state of world
   var nextGenBtn = document.getElementById("nextGenBtn");

@@ -6,6 +6,7 @@ var model = {
 
   initData: function() {
     this.swicher = true;
+    this.matrix0 = [[]]; this.matrix1 = [[]];
     for (var i = 0; i < this.SIZE; i ++) {
       this.matrix0[i] = [];
       this.matrix1[i] = [];
@@ -28,7 +29,7 @@ var model = {
   },
 
   setWorldSize: function(s) {
-    model.SIZE = s;
+    model.SIZE = Number(s);
   },
 
   getWorldSize: function() {

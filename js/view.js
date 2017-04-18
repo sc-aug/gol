@@ -2,9 +2,9 @@ var view = {
   generateTable: function(size) {
     //var live = "world" + size + "live";
     //var die = "world" + size + "die";
-    var board = document.getElementById("board-wrap");
+    var board = document.getElementById("world-wrap");
     var tbl = document.createElement("table");
-    // tbl.setAttribute("id", "world");
+    tbl.setAttribute("id", "world");
     var row = document.createElement("tr");
     // creating all cells
     for (var i = 0; i < size; i++) {
@@ -24,14 +24,19 @@ var view = {
     // sets the border attribute of tbl to 2;
   },
 
+  removeTable: function(id) {
+    var tbl = document.getElementById("world");
+    if(tbl) tbl.parentNode.removeChild(tbl);
+  },
+
   live: function(i, j, size) {
     var cell = document.getElementById("id_" + i + "_" + j);
-    cell.setAttribute("class", ("world" + size + "live"));
+    cell.setAttribute("class", ("live"));
   },
 
   die: function(i, j, size) {
     var cell = document.getElementById("id_" + i + "_" + j);
-    cell.setAttribute("class", ("world" + size + "die"));
+    cell.setAttribute("class", ("die"));
   }
 
 };

@@ -60,7 +60,7 @@ select, input {
 #right-board {
   width: 138px;
 }
-#board-wrap {
+#world-wrap {
   margin-left: auto;
   margin-right: auto;
   width: 522px;
@@ -69,13 +69,13 @@ select, input {
   margin-left: auto;
   margin-right: auto;
 }
-#board-wrap table{
+#world-wrap table{
   width: 522px;
   height: 522px;
   background: #EAEDED;
   border-radius: 2px;
 }
-#board-wrap td {
+#world-wrap td {
   border-spacing: 1px;
   border-radius: 2px;
 }
@@ -88,12 +88,12 @@ select, input {
 .div-ctrl {
   margin: 0px;
 }
-.world40live {
+.live {
   background: #E74C3C;
   width: auto;
   height: auto;
 }
-.world40die {
+.die {
   background: #AAB7B8;
   width: auto;
   height: auto;

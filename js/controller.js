@@ -1,7 +1,11 @@
 var controller = {
-  initWorld: function() {
+  initWorld: function(size) {
+    // remove table
+    view.removeTable();
+    // default 40
+    if (!size) size = 40;
     // world size
-    model.setWorldSize(40); // default size
+    model.setWorldSize(size); // default size
     // init data
     model.initData();
     // generate table structure
@@ -16,9 +20,9 @@ var controller = {
     for (var i = 0; i < size; i ++) {
       for (var j = 0; j < size; j ++) {
         if (mat[i][j])
-          view.live(i, j, size);
+          view.live(i, j);
         else
-          view.die(i, j, size);
+          view.die(i, j);
       }
     }
   }
