@@ -1,23 +1,29 @@
 var model = {
-  matrix: [[]],
+  matrix0: [[]],
+  matrix1: [[]],
+  swicher: true,
   SIZE: 0,
 
   initData: function() {
+    this.swicher = true;
     for (var i = 0; i < this.SIZE; i ++) {
-      this.matrix[i] = [];
+      this.matrix0[i] = [];
+      this.matrix1[i] = [];
     }
     for (var i = 0; i < this.SIZE; i ++) {
       for (var j = 0; j < this.SIZE; j ++) {
-        this.matrix[i][j] = false;
+        this.matrix0[i][j] = false;
+        this.matrix0[i][j] = false;
       }
     }
   },
 
   addRandNode: function(pairs) {
+    var mat = model.getMatrix();
     for (var i = 0; i < pairs.length; i ++) {
       var r = pairs[i][0];
       var c = pairs[i][1];
-      model.matrix[r][c] = true;
+      mat[r][c] = true;
     }
   },
 
@@ -30,7 +36,7 @@ var model = {
   },
 
   getMatrix: function() {
-    return model.matrix;
+    return model.swicher ? model.matrix0 : model.matrix1;
   }
 
 }
