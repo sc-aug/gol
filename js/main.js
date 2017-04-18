@@ -12,6 +12,12 @@ function handleAddRandBtn() {
   controller.refresh();
 }
 
+function handleNextGenBtn() {
+  model.propogate();
+  model.flipSwicher();
+  controller.refresh();
+}
+
 function init() {
   // create world
   controller.initWorld();
@@ -19,6 +25,10 @@ function init() {
   // Add Random Nodes Button
   var addRandBtn = document.getElementById("addRandBtn");
   addRandBtn.onclick = handleAddRandBtn;
+
+  // Generate next state of world
+  var nextGenBtn = document.getElementById("nextGenBtn");
+  nextGenBtn.onclick = handleNextGenBtn;
 }
 
 window.onload = init;

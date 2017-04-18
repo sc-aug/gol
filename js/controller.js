@@ -11,7 +11,7 @@ var controller = {
   },
 
   refresh: function() {
-    var mat = model.getMatrix();
+    var mat = model.getCurMatrix();
     var size = model.getWorldSize();
     for (var i = 0; i < size; i ++) {
       for (var j = 0; j < size; j ++) {
