@@ -30,16 +30,19 @@ apply ooad concepts, pattern design, and js skills
   - auto generation (synchronizing programming)
 
 ### Iteration 1
-* 
-* task:
-  - design board
-  - implement basic func
-    - init (model)
-    - clean (model)
-    - refresh (view)
-    - nextGen (model)
-    - random (model)
+* design board
+* implement basic func
+  - init (model)
+  - refresh (view)
+  - clean (model)
+  - random (model)
 
+### Iteration 2
+* two size world
+* next generator
+
+## Iteration 3
+* mouse add node
 
 ## Constuction
 
