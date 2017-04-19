@@ -1,10 +1,8 @@
 ---
 start: 2017-04-05
-update: 2017-04-05
-version: v0.0
+update: 2017-04-18
+version: v1.0
 ---
-
-# Dev Doc of GOF proj
 
 ## UP Agile
 `Inception -> Elaboration -> Constuction -> Trainsition`
@@ -25,27 +23,34 @@ apply ooad concepts, pattern design, and js skills
   - apply rule of gol
 * Implement Key Feature:
   - initialization: mouse click  / random
-  - add predefined creatures with mouse click
-  - show coordinates
+  - <del>add predefined creatures with mouse click</del>
+  - <del>show coordinates</del>
   - auto generation (synchronizing programming)
 
 ### Iteration 1
 * design board
 * implement basic func
-  - init (model)
-  - refresh (view)
+  - init (control)
+  - refresh <del>(view)</del> (control)
   - clean (model)
-  - random (model)
+  - random (main)
 
 ### Iteration 2
 * two size world
 * next generator
 
 ## Iteration 3
-* mouse add node
+* clean button
+* auto generate
+
+## Iteration 4
+* mouse click add node
+  - on & off switch
 
 ## Constuction
-
+* refinement
+* show coordinates
+* baisc case
 
 ## Trainsition
-
+* refinement & deployment
