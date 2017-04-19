@@ -14,7 +14,7 @@
         <h1>Game of Life: No Border World</h1>
       </center>
       <div id="version" align="right">
-        version 3.0
+        version 3.2
       </div>
     </div>
 
@@ -35,6 +35,7 @@
           World Size
             <select id="worldSelector">
               <option value="10">10 x 10 board</option>
+              <option value="20">20 x 20 board</option>
               <option value="40" selected="selected">40 x 40 board</option>
             </select>
           </div>
@@ -45,7 +46,19 @@
           </div>
           <hr/>
           <div class="div-ctrl">
+          Manual Generate
             <input type="button" id="nextGenBtn" value="Next Generation">
+          </div>
+          <hr/>
+          <div class="div-ctrl">
+          Auto Generate
+            <input type="button" id="autoGenBtn" value="Auto Generate">
+          
+            <input type="button" id="stopAutoGenBtn" value="Stop Auto Gen">
+          </div>
+          <hr/>
+          <div class="div-ctrl">
+            <input type="button" id="cleanBtn" value="Clean World">
           </div>
 
         </div>
