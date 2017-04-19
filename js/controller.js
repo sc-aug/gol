@@ -25,6 +25,12 @@ var controller = {
           view.die(i, j);
       }
     }
+  },
+
+  oneGenerate: function() {
+    model.propogate();
+    model.flipSwicher();
+    controller.refresh();
   }
 
 }

@@ -52,6 +52,16 @@ var model = {
     model.swicher = !model.swicher;
   },
 
+  clean: function() {
+    var mat = model.getCurMatrix();
+    var size = model.getWorldSize();
+    for (var i = 0; i < size; i ++) {
+      for (var j = 0; j < size; j ++) {
+        mat[i][j] = false;
+      }
+    }
+  },
+
   /* Compute the next generation */
   propogate: function() {
     var matCur =  model.getCurMatrix();
