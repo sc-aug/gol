@@ -14,8 +14,8 @@ function handleAddRandBtn() {
 }
 
 function handleWorldSelector(Obj) {
-  var sp = model.getSpeed();
   stopGenerate();
+  var sp = model.getSpeed();
   controller.initWorld(Obj.target.value, sp);
   initMouseFunc();
 }
@@ -31,6 +31,7 @@ function handleSpeedSelector(Obj) {
 }
 
 function handleAutoGenBtn() {
+  stopGenerate();
   var sp = model.getSpeed();
   intv = setInterval(function() {
     controller.oneGenerate()}, sp);
