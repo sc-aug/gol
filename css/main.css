@@ -97,3 +97,8 @@ select, input {
   width: auto;
   height: auto;
 }
+.focus {
+  background: #70db70;
+  width: auto;
+  height: auto;
+}
