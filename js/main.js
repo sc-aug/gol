@@ -47,10 +47,18 @@ function handleCleanBtn() {
   controller.refresh();
 }
 
-function handleTableOnclick(Obj) {
-  //window.alert(Obj);
+function handleCellOnclick(Obj) {
   stopGenerate()
   controller.flipCellState(Obj.target.id);
+}
+
+function handleCellMouseOver(Obj) {
+  stopGenerate()
+  controller.focusCell(Obj.target.id);
+}
+
+function handleCellMouseOut(Obj) {
+  controller.unFocusCell(Obj.target.id);
 }
 
 function stopGenerate() {
@@ -78,7 +86,9 @@ function initMouseFunc() {
   var tableCells = getTableCellsObj();
   for (var i = 0; i < size; i ++) {
     for (var j = 0; j < size; j ++) {
-      tableCells[i][j].onclick = handleTableOnclick;
+      tableCells[i][j].onclick = handleCellOnclick;
+      tableCells[i][j].onmouseover = handleCellMouseOver;
+      tableCells[i][j].onmouseout = handleCellMouseOut;
     }
   }
 }

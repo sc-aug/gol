@@ -37,6 +37,11 @@ var view = {
   die: function(i, j, size) {
     var cell = document.getElementById("id_" + i + "_" + j);
     cell.setAttribute("class", ("die"));
+  },
+
+  foc: function(i, j) {
+    var cell = document.getElementById("id_" + i + "_" + j);
+    cell.setAttribute("class", ("focus"));
   }
 
 };
