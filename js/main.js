@@ -1,7 +1,7 @@
 function handleAddRandBtn() {
   stopGenerate();
   var pairList = [[]];
-  var cnt = model.getWorldSize();
+  var cnt = model.getWorldSize()*2;
   for (var i = 0; i < cnt; i ++) {
     r = Math.floor(Math.random() * model.getWorldSize());
     c = Math.floor(Math.random() * model.getWorldSize());
