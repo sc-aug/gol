@@ -112,6 +112,7 @@ function init() {
   // speed Selector
   var speedSelector = document.getElementById("speedSelector");
   speedSelector.onchange = handleSpeedSelector;
+  speedSelector.onclick = handleStopAutoGenBtn;
 
   // create world
   controller.initWorld(worldSelector.value, speedSelector.value);
