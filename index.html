@@ -35,8 +35,8 @@
           World Size
             <select id="worldSelector">
               <option value="10">10 x 10 board</option>
-              <option value="20">20 x 20 board</option>
-              <option value="40" selected="selected">40 x 40 board</option>
+              <option value="20" selected="selected">20 x 20 board</option>
+              <option value="40">40 x 40 board</option>
             </select>
           </div>
           <hr/>
@@ -52,6 +52,12 @@
           <hr/>
           <div class="div-ctrl">
           Auto Generate
+            <select id="speedSelector">
+              <option value="50">50 ms</option>
+              <option value="100">100 ms</option>
+              <option value="500" selected="selected">500 ms</option>
+              <option value="1000">1000 ms</option>
+            </select>
             <input type="button" id="autoGenBtn" value="Auto Generate">
           
             <input type="button" id="stopAutoGenBtn" value="Stop Auto Gen">

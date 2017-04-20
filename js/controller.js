@@ -1,12 +1,16 @@
 var controller = {
   
-  initWorld: function(size) {
+  initWorld: function(size, sp) {
     // remove table
     view.removeTable();
     // default 40
     if (!size) size = 40;
+    // default 200
+    if (!sp) sp = 200;
     // world size
     model.setWorldSize(size); // default size
+    // autogen speed
+    model.setSpeed(sp);
     // init data
     model.initData();
     // generate table structure
