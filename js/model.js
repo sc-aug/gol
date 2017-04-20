@@ -2,6 +2,7 @@ var model = {
   matrix0: [[]],
   matrix1: [[]],
   swicher: true,
+  SPEED: 0,
   SIZE: 0,
 
   initData: function() {
@@ -34,6 +35,14 @@ var model = {
 
   getWorldSize: function() {
     return model.SIZE;
+  },
+
+  setSpeed: function(sp) {
+    model.SPEED = sp;
+  },
+
+  getSpeed: function() {
+    return model.SPEED;
   },
 
   getCurMatrix: function() {

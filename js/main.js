@@ -15,8 +15,8 @@ function handleAddRandBtn() {
 
 function handleWorldSelector(Obj) {
   stopGenerate();
-  var size = Obj.target.value;
-  controller.initWorld(size);
+  var sp = model.getSpeed();
+  controller.initWorld(Obj.target.value, sp);
   initMouseFunc();
 }
 
@@ -25,17 +25,16 @@ function handleNextGenBtn() {
   controller.oneGenerate();
 }
 
+function handleSpeedSelector(Obj) {
+  stopGenerate();
+  model.setSpeed(Obj.target.value);
+}
+
 function handleAutoGenBtn() {
+  stopGenerate();
+  var sp = model.getSpeed();
   intv = setInterval(function() {
-    controller.oneGenerate()}, 100);
-  // var cnt = 5000;
-  // intv = setInterval(function() {
-  //   if (cnt != 0) {
-  //     controller.oneGenerate();
-  //     cnt -= 1;
-  //   } else {
-  //     window.clearInterval(intv);
-  //   }}, 100);
+    controller.oneGenerate()}, sp);
 }
 
 function handleStopAutoGenBtn() {
@@ -85,8 +84,6 @@ function initMouseFunc() {
 }
 
 function init() {
-  // create world
-  controller.initWorld();
 
   // Add Random Nodes Button
   var addRandBtn = document.getElementById("addRandBtn");
@@ -111,6 +108,13 @@ function init() {
   // Clean World
   var cleanBtn = document.getElementById("cleanBtn");
   cleanBtn.onclick = handleCleanBtn;
+
+  // speed Selector
+  var speedSelector = document.getElementById("speedSelector");
+  speedSelector.onchange = handleSpeedSelector;
+
+  // create world
+  controller.initWorld(worldSelector.value, speedSelector.value);
 
   // Mouse click function
   initMouseFunc();
