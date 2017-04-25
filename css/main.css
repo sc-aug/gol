@@ -20,8 +20,14 @@ hr {
   width:100%;
 }
 select, input {
+  margin-top: 5px;
   text-align-last: center;
   width: 130px;
+}
+input {
+  border-radius: 3px;
+  border-width: 0px;
+  background-color: white;
 }
 #content-wrap {
   width: 700px;
@@ -78,6 +84,10 @@ select, input {
   border-spacing: 1px;
   border-radius: 2px;
 }
+#autoGenBtn, #nextGenBtn {
+  border-color: white;
+  background-color: #99bbff;
+}
 .div-row {
   margin-left: auto;
   margin-right: auto;
@@ -93,7 +103,7 @@ select, input {
   height: auto;
 }
 .die {
-  background: #d4d4aa;
+  background: #cccccc;
   width: auto;
   height: auto;
 }
