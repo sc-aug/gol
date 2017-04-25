@@ -44,7 +44,6 @@ function handleCellOnclick(Obj) {
 }
 
 function handleCellMouseOver(Obj) {
-  stopGenerate()
   controller.focusCell(Obj.target.id);
 }
 
