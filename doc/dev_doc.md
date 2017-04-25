@@ -1,7 +1,7 @@
 ---
 start: 2017-04-05
-update: 2017-04-18
-version: v1.0
+update: 2017-04-20
+version: v2.0
 ---
 
 ## UP Agile
@@ -48,9 +48,8 @@ apply ooad concepts, pattern design, and js skills
   - on & off switch
 
 ## Constuction
-* refinement
-* show coordinates
-* baisc case
+* color / theme
+* page refinements
 
 ## Trainsition
 * refinement & deployment

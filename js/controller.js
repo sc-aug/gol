@@ -15,6 +15,11 @@ var controller = {
     model.initData();
     // generate table structure
     view.generateTable(model.getWorldSize());
+    // add random nodes
+    var cnt = model.getWorldSize() / 10;
+    while (cnt--) {
+      controller.addRandomNode();
+    }
     // update table
     controller.refresh();
   },
@@ -30,6 +35,19 @@ var controller = {
           view.die(i, j);
       }
     }
+  },
+
+  addRandomNode: function() {
+    var pairList = [[]];
+    var cnt = model.getWorldSize()*2;
+    for (var i = 0; i < cnt; i ++) {
+      r = Math.floor(Math.random() * model.getWorldSize());
+      c = Math.floor(Math.random() * model.getWorldSize());
+      pairList[i] = [];
+      pairList[i][0] = r;
+      pairList[i][1] = c;
+    }
+    model.addRandNode(pairList);
   },
 
   // for manual generate Btn

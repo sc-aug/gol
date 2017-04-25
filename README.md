@@ -8,9 +8,8 @@ Those creatures live in a no border world ...
 * Auto generation. (constructing)
 
 #### Simple Rule
-* for `cell(i,j)` in `board(Row, Col)`
-  - `i = i % Row`
-  - `j = j % Col`
+* all activities trapped in the square board.
+* left-right connected, top-botton connected
 
 #### Reference
 * [wiki: Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
