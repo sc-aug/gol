@@ -1,6 +1,6 @@
 function handleAddRandBtn() {
   stopGenerate();
-  controller.addRandomNode();
+  controller.addRandNode();
   controller.refresh();
 }
 

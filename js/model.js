@@ -108,6 +108,51 @@ var model = {
     while (i < 0) { i += size; }
     while (i >= size) { i -= size; }
     return i;
+  },
+
+  sampleOfSize: function(size) {
+    if (size == 10) {
+      model.sample10();
+    } else if (size == 20) {
+      model.sample20();
+    } else {
+      model.sample40();
+    }
+  },
+
+  sample10: function() {
+    var mat = model.getCurMatrix();
+    // c-1
+    mat[3][4] = true;
+    mat[4][5] = true;
+    mat[5][3] = true;
+    mat[5][4] = true;
+    mat[5][5] = true;
+  },
+
+  sample20: function() {
+    var mat = model.getCurMatrix();
+    // c-1
+    mat[8][8] = true;
+    mat[9][9] = true;
+    mat[10][7] = true;
+    mat[10][8] = true;
+    mat[10][9] = true;
+    // c-2
+    mat[2][16] = true;
+    mat[3][15] = true;
+    mat[4][15] = true;
+    mat[4][16] = true;
+    mat[4][17] = true;
+  },
+
+  sample40: function() {
+    var size = model.getWorldSize();
+    var cnt = size / 5;
+    while (cnt--) {
+      var xyPairs = util.genRandNode();
+      model.addRandNode(xyPairs);
+    }
   }
 
 }
